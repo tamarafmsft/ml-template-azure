@@ -1,4 +1,4 @@
-# ML Ops with GitHub Actions and Azure Machine Learning
+# ML Ops with GitHub Actions and Azure Machine Learning :)
 
 <p align="center">
   <img src="docs/images/aml.svg" height="80"/>
