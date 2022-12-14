@@ -26,15 +26,11 @@ If you don’t have an Azure subscription, create a free account before you begi
 
 ### 2. Create repository
 
-To get started with ML Ops, simply create a new repo based off this template, by clicking on the green "Use this template" button:
-
-<p align="center">
-  <img src="https://help.github.com/assets/images/help/repository/use-this-template-button.png" alt="GitHub Template repository" width="700"/>
-</p>
+To get started with ML Ops, fork this repo into your GitHub account. Use the **Fork** button on the upper left to do so.
 
 ### 3. Setting up the required secrets
 
-A service principal needs to be generated for authentication and getting access to your Azure subscription. We suggest adding a service principal with contributor rights to a new resource group or to the one where you have deployed your existing Azure Machine Learning workspace. Just go to the Azure Portal to find the details of your resource group or workspace. Then start the Cloud CLI or install the [Azure CLI](https://docs.microsoft.com/en-us/cli/azure/install-azure-cli?view=azure-cli-latest) on your computer and execute the following command to generate the required credentials:
+A service principal needs to be generated for authentication and getting access to your Azure subscription. We suggest adding a service principal with contributor rights to a new resource group or to the one where you have deployed your existing Azure Machine Learning workspace. Just go to the Azure Portal to find the details of your resource group - please create a new resource group to ease cleanup later on. Execute the following command to generate the required credentials:
 
 ```sh
 # Replace {service-principal-name}, {subscription-id} and {resource-group} with your 
@@ -69,7 +65,7 @@ Please follow [this link](https://help.github.com/en/actions/configuring-and-man
 
 ### 4. Define your workspace parameters
 
-You have to modify the parameters in the <a href="/.cloud/.azure/workspace.json">`/.cloud/.azure/workspace.json"` file</a> in your repository, so that the GitHub Actions create or connect to the desired Azure Machine Learning workspace. Just click on the link and edit the file.
+You have to modify the parameters in the <a href="/.cloud/.azure/workspace.json">`/.cloud/.azure/workspace.json"`</a> file in your repository, so that the GitHub Actions create or connect to the desired Azure Machine Learning workspace. Just click on the link and edit the file.
 
 Please use the same value for the `resource_group` parameter that you have used when generating the azure credentials. If you already have an Azure ML Workspace under that resource group, change the `name` parameter in the JSON file to the name of your workspace, if you want the Action to create a new workspace in that resource group, pick a name for your new workspace, and assign it to the `name` parameter. You can also delete the `name` parameter, if you want the action to use the default value, which is the repository name.
 
@@ -79,20 +75,27 @@ Once you save your changes to the file, the predefined GitHub workflow that trai
   <img src="docs/images/actions_tab.png" alt="GitHub Actions Tab" width="700"/>
 </p>
 
-### 5. Modify the code
+### 5. Modify the code (Optional)
 
-Now you can start modifying the code in the <a href="/code">`code` folder</a>, so that your model and not the provided sample model gets trained on Azure. Where required, modify the environment yaml so that the training and deployment environments will have the correct packages installed in the conda environment for your training and deployment.
+Now you can start modifying the code in the <a href="/code">`code`</a> foleder, so that your model and not the provided sample model gets trained on Azure.Where required, modify the environment yaml so that the training and deployment environments will have the correct packages installed in the conda environment for your training and deployment.
 Upon pushing the changes, actions will kick off your training and deployment run. Check the actions tab to view if your actions have successfully run.
 
-Comment lines 39 to 55 in your <a href="/.github/workflows/train_deploy.yml">`"/.github/workflows/train_deploy.yml"` file</a> if you only want to train the model. Uncomment line 7 to 8, if you only want to kick off the workflow when pushing changes to the `"/code/"` file.
+Comment lines 39 to 55 in your <a href="/.github/workflows/train_deploy.yml">`"/.github/workflows/train_deploy.yml"`</a> file if you only want to train the model. Uncomment line 7 to 8, if you only want to kick off the workflow when pushing changes to the `"/code/"` file.
 
 ### 6. Start the action
 
-As you can see in the Action it will be triggered by a push to the main branch. Create this push.
+When looking at the action <a href="/.github/workflows/train_deploy.yml">`"/.github/workflows/train_deploy.yml"`</a> you will see that it is being triggered by a push to the main branch or changes in the README.md. Since we can do the letter much easier please change something in this README file by editing it in GitHub and commiting the change.
 
 ### 7. Viewing your AML resources and runs
 
 The log outputs of your action will provide URLs for you to view the resources that have been created in AML. Alternatively, you can visit the [Machine Learning Studio](https://ml.azure.com/) to view the progress of your runs, etc. For more details, read the documentation below.
+Please do so to make sure everything workes as expected-
+
+### 8. Delete!!!
+
+Delete the entire resource group you did create in the beginning of this challenge. Do so via the portal or use the Azure CLI by typing `az group delete -n <RG_NAME> -l <LOCATION>`.
+
+Navigate back to the previous repo to follow the [next challenge](https://github.com/azuredevcollege/aidevcollege/blob/master/day1/AzureMachineLearningService/challenges/challenge_04.md).
 
 # Documentation
 
