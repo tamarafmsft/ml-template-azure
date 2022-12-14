@@ -22,9 +22,9 @@ The following prerequisites are required to make this repository work:
 - Contributor access to the Azure subscription
 - Access to [GitHub Actions](https://github.com/features/actions)
 
-### 2. Create repository
+### 2. Fork repository
 
-To get started with ML Ops, fork this repo into your GitHub account. Use the **Fork** button on the upper left to do so.
+To get started with ML Ops, fork this repo into your GitHub account. Use the **Fork** button on the upper right to do so.
 
 ### 3. Setting up the required secrets
 
