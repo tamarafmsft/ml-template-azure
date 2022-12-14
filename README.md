@@ -82,9 +82,9 @@ Upon pushing the changes, actions will kick off your training and deployment run
 
 Comment lines 39 to 55 in your <a href="/.github/workflows/train_deploy.yml">`"/.github/workflows/train_deploy.yml"`</a> file if you only want to train the model. Uncomment line 7 to 8, if you only want to kick off the workflow when pushing changes to the `"/code/"` file.
 
-### 6. Start the action
+### 6. Trigger the action
 
-When looking at the action <a href="/.github/workflows/train_deploy.yml">`"/.github/workflows/train_deploy.yml"`</a> you will see that it is being triggered by a push to the main branch or changes in the README.md. Since we can do the letter much easier please change something in this README file by editing it in GitHub and commiting the change.
+When looking at the action <a href="/.github/workflows/train_deploy.yml">`"/.github/workflows/train_deploy.yml"`</a> you will see that it is being triggered by a push to the main branch or changes in the README.md. We can do both directly here in GitHub. Change for example something in this README by selecting the little pen in the upper left to edit anything and after that commit your changes, either directly on the main branch or by creating a pull request.
 
 ### 7. Viewing your AML resources and runs
 
