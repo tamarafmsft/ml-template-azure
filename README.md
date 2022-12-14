@@ -86,7 +86,11 @@ Upon pushing the changes, actions will kick off your training and deployment run
 
 Comment lines 39 to 55 in your <a href="/.github/workflows/train_deploy.yml">`"/.github/workflows/train_deploy.yml"` file</a> if you only want to train the model. Uncomment line 7 to 8, if you only want to kick off the workflow when pushing changes to the `"/code/"` file.
 
-### 6. Viewing your AML resources and runs
+### 6. Start the action
+
+As you can see in the Action it will be triggered by a push to the main branch. Create this push.
+
+### 7. Viewing your AML resources and runs
 
 The log outputs of your action will provide URLs for you to view the resources that have been created in AML. Alternatively, you can visit the [Machine Learning Studio](https://ml.azure.com/) to view the progress of your runs, etc. For more details, read the documentation below.
 
