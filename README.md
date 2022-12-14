@@ -67,12 +67,6 @@ You have to modify the parameters in the <a href="/.cloud/.azure/workspace.json"
 
 Please use the same value for the `resource_group` parameter that you have used when generating the azure credentials. If you already have an Azure ML Workspace under that resource group, change the `name` parameter in the JSON file to the name of your workspace, if you want the Action to create a new workspace in that resource group, pick a name for your new workspace, and assign it to the `name` parameter. You can also delete the `name` parameter, if you want the action to use the default value, which is the repository name.
 
-Once you save your changes to the file, the predefined GitHub workflow that trains and deploys a model on Azure Machine Learning gets triggered. Check the actions tab to view if your actions have successfully run.
-
-<p align="center">
-  <img src="docs/images/actions_tab.png" alt="GitHub Actions Tab" width="700"/>
-</p>
-
 ### 5. Modify the code (Optional)
 
 Now you can start modifying the code in the <a href="/code">`code`</a> foleder, so that your model and not the provided sample model gets trained on Azure.Where required, modify the environment yaml so that the training and deployment environments will have the correct packages installed in the conda environment for your training and deployment.
@@ -82,7 +76,13 @@ Comment lines 39 to 55 in your <a href="/.github/workflows/train_deploy.yml">`"/
 
 ### 6. Trigger the action
 
-When looking at the action <a href="/.github/workflows/train_deploy.yml">`"/.github/workflows/train_deploy.yml"`</a> you will see that it is being triggered by a push to the main branch or changes in the README.md. Should the Action not have been triggered by the last changes - maybe because GitHub Actions were not activated yet - we can trigger directly here in GitHub. Change for example something in this README by selecting the little pen in the upper left to edit anything and after that commit your changes, either directly on the main branch or by creating a pull request.
+When looking at the action <a href="/.github/workflows/train_deploy.yml">`"/.github/workflows/train_deploy.yml"`</a> you will see that it is being triggered by a push to the main branch or changes in the README.md. We can do both directly here in GitHub. Change for example something in this README by selecting the little pen in the upper left to edit anything and after that commit your changes, either directly on the main branch or by creating a pull request.
+
+Have a look at the Actions tab to see what is happening.
+
+<p align="center">
+  <img src="docs/images/actions_tab.png" alt="GitHub Actions Tab" width="700"/>
+</p>
 
 ### 7. Viewing your AML resources and runs
 
